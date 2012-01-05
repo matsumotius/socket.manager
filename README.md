@@ -3,6 +3,22 @@ example to use socket mapping.
 
 # Usage
 see example/
+```javascript
+var socket  = require('./socket.manager');
+var app     = module.exports = express.createServer();
+var mapping = {
+  'hi'    : 'hi', // call ./controller/socket/hi.js
+  'hello' : 'test#get' // call ./controller/socket/test.js - get
+};
+app.listen(3000);
+socket.listen(app, mapping);
+```
+
+change file path
+```javascript
+var socket  = require('./socket.manager');
+socket.base = './socket'; // change base path './controller/socket' => './socket'
+```
 
 ## License
 
